@@ -22,4 +22,32 @@ export class ImgComponent {
     console.log('log hijo')
     this.loaded.emit(this.img)
   }
+
+  constructor(){
+    // before render
+    // NO asyng -- once time
+    console.log('constructor', 'imgValue =>', this.img)
+  }
+
+  ngOnChanges(){
+    // before render
+    // changes inputs -- times
+    console.log('ngOnChanges', 'imgValue =>', this.img )
+  }
+
+  ngOnInit(): void{
+    // before render
+    // async - fetch -- times
+    console.log('ngOnInit', 'imgValue =>', this.img)
+  }
+  
+  ngAfterViewInit() {
+    // after render
+    // handler children
+    console.log('ngAfeterViewInit', 'imgValue =>', this.img)
+  }
+
+  ngOnDestroy() {
+    // delete
+  }
 }
